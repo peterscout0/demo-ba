@@ -1,0 +1,63 @@
+<div class="search-services-container">
+  <header class="search-header">
+    <div class="search-top-bar">
+      <button 
+        class="back-btn" 
+        (click)="onNavigateToHome()" 
+        (keydown.enter)="onNavigateToHome()"
+        (keydown.space)="onNavigateToHome()"
+        type="button"
+        aria-label="Volver al inicio">
+        <span class="material-icons">arrow_back_ios</span>
+      </button>
+      <div class="bam-logo">
+        <img src="./logo.png" alt="BAM Logo" class="logo-image">
+      </div>
+      <div class="empty-space"></div>
+    </div>
+  </header>
+  <div class="progress-section">
+    <p class="progress-text">Paso 1 de 3</p>
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+  </div>
+  <div class="search-content">
+    <h1 class="main-title">Servicio que deseas pagar</h1>
+    <div class="search-input-container">
+      <input 
+        type="text" 
+        placeholder="Buscar" 
+        class="search-input"
+        #searchInput
+        (focus)="onSearchFocus()"
+        (blur)="onSearchBlur()"
+        (input)="onSearchInput($event)">
+      <span class="material-icons search-icon">search</span>
+      <div class="search-alert" [class.show]="showSearchAlert">
+        <p>Si no encuentras el servicio que buscas, ve a <strong>"Pagar otro servicio"</strong> para ver todos los servicios disponibles.</p>
+      </div>
+    </div>
+    <div class="pay-other-service">
+      <span>Pagar otro servicio</span>
+      <span class="material-icons">add</span>
+    </div>
+  </div>
+  <div class="search-results-area">
+    <div class="search-image-container">
+      <img src="./search.png" alt="Buscar servicios" class="search-image">
+    </div>
+    <div class="no-results">
+      <h3>Búsqueda sin resultadoss</h3>
+      <p>Valida los valores ingresados e intenta de nuevo</p>
+    </div>
+  </div>
+</div>
+
+<app-update-modal
+  [isVisible]="showUpdateModal"
+  [title]="'Búsqueda de Servicios'"
+  [version]="currentVersion"
+  [features]="updateFeatures"
+  (close)="onCloseUpdateModal()">
+</app-update-modal>

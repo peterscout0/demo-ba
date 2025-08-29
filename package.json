@@ -4,9 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "ng serve --configuration=development --watch --live-reload --poll=2000", 
     "build": "ng build",
     "build:prod": "ng build --configuration production --base-href /demo-ba/",
-    "deploy": "ng build --configuration production --base-href /demo-ba/ && npx angular-cli-ghpages --dir=dist/demo-ba",
+    "deploy": "ng build --configuration production --base-href /demo-ba/ && npx angular-cli-ghpages --dir=dist/demo-ba/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -41,7 +42,7 @@
     "@angular/cli": "^20.2.0",
     "@angular/compiler-cli": "^20.2.0",
     "@types/jasmine": "~5.1.0",
-    "angular-cli-ghpages": "^2.0.3",
+    "angular-cli-ghpages": "^2.0.0",
     "jasmine-core": "~5.9.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",

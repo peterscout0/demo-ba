@@ -1,0 +1,134 @@
+<div class="mobile-cash-container">
+  <header class="mobile-cash-header">
+    <div class="header-content">
+      <div class="bam-logo">
+        <img src="./logo.png" alt="BAM Logo" class="logo-image">
+      </div>
+      <div class="header-title">
+        <span class="title-light">REALIZAR</span>
+        <span class="title-bold">Efectivo Móvil</span>
+      </div>
+    </div>
+  </header>
+  <nav class="tabs-navigation">
+    <div class="tabs">
+      <button 
+        class="tab-button" 
+        [class.active]="activeTab === 'enviar'"
+        (click)="setActiveTab('enviar')">
+        Enviar
+      </button>
+      <button 
+        class="tab-button" 
+        [class.active]="activeTab === 'favoritos'"
+        (click)="setActiveTab('favoritos')">
+        Favoritos
+      </button>
+      <button 
+        class="tab-button" 
+        [class.active]="activeTab === 'movimientos'"
+        (click)="setActiveTab('movimientos')">
+        Movimientos
+      </button>
+    </div>
+  </nav>
+  <div class="main-content">
+    <section class="amount-section">
+      <label class="section-label">Monto a retirar del cajero</label>
+      <div class="amount-selector">
+        <div class="amount-display">
+          {{ formatCurrency(selectedAmount) }}
+        </div>
+        <div class="slider-container">
+          <input 
+            type="range" 
+            [min]="minAmount" 
+            [max]="maxAmount" 
+            [step]="10"
+            [(ngModel)]="selectedAmount"
+            (input)="onAmountChange()"
+            (change)="onAmountChange()"
+            class="amount-slider">
+          <div class="amount-range">
+            <span class="min-amount">{{ formatCurrency(minAmount) }}</span>
+            <span class="max-amount">{{ formatCurrency(maxAmount) }}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="beneficiary-section">
+      <div class="beneficiary-header">
+        <label class="section-label bold">Número de teléfono del beneficiario</label>
+        <button 
+          class="info-btn" 
+          (click)="showBeneficiaryInfo = !showBeneficiaryInfo"
+          (mouseenter)="showBeneficiaryInfo = true"
+          (mouseleave)="showBeneficiaryInfo = false">
+          <span class="material-icons">info</span>
+        </button>
+      </div>
+      <div class="info-message" [class.show]="showBeneficiaryInfo">
+        Verifica que el número de teléfono del beneficiario sea el correcto, ya que las personas suelen cambiar de número frecuentemente.
+      </div>
+      <div class="beneficiary-options">
+        <div class="beneficiary-option">
+          <button class="circular-btn auto-send" (click)="onAutoSend()">
+            <span class="material-icons">account_circle</span>
+          </button>
+          <span class="option-label">Autoenvío</span>
+        </div>
+        <div class="beneficiary-option">
+          <button class="circular-btn add-beneficiary" (click)="onAddBeneficiary()">
+            <span class="material-icons">add</span>
+          </button>
+          <span class="option-label">Agregar</span>
+        </div>
+      </div>
+    </section>
+    <section class="debit-account-section">
+      <label class="section-label bold">Cuenta donde se realizará el débito</label>
+      <div class="account-card">
+        <div class="account-main-info">
+          <div class="account-holder">María Fernández</div>
+          <div class="account-type">Monetaria</div>
+          <div class="account-number">30-2847163-8</div>
+        </div>
+        <div class="account-right-section">
+          <button class="edit-btn" (click)="onEditAccount()">
+            <span class="material-icons">edit</span>
+          </button>
+          <div class="account-balance">
+            <div class="balance-label">Saldo disponible</div>
+            <div class="balance-amount">Q 0.00</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="description-section">
+      <label class="section-label">Descripción</label>
+      <div class="description-field">
+        <input 
+          type="text" 
+          [(ngModel)]="description"
+          class="description-input"
+          placeholder="Transferencia Efectivo Móvil">
+      </div>
+    </section>
+  </div>
+  <div class="bottom-action">
+    <button class="transfer-btn" (click)="onTransfer()">
+      TRANSFERIR
+    </button>
+  </div>
+  <button class="back-btn" (click)="onNavigateToTransfer()">
+    <span class="material-icons">arrow_back_ios</span>
+  </button>
+</div>
+
+<app-update-modal
+  [isVisible]="showUpdateModal"
+  [title]="'Novedades en Efectivo Móvil'"
+  [version]="currentVersion"
+  [features]="updateFeatures"
+  (close)="onCloseUpdateModal()">
+</app-update-modal>

@@ -1,0 +1,26 @@
+<div class="transfer-container">
+  <header class="transfer-header">
+    <div class="transfer-top-bar">
+      <div class="empty-space"></div>
+      <div class="bam-logo">
+        <img src="./logo.png" alt="BAM Logo" class="logo-image">
+      </div>
+      <button class="exit-btn" (click)="onNavigateToHome()">
+        <span class="material-icons">logout</span>
+      </button>
+    </div>
+  </header>
+  <div class="transfer-title">
+    <h1>Transferir</h1>
+  </div>
+  <div class="transfer-content">
+    <div class="transfer-options">
+      <div class="transfer-option" (click)="onSelectMobileTransfer()">
+        <div class="option-circle">
+          <span class="material-icons">phone_android</span>
+        </div>
+        <p class="option-text">Efectivo Móvil</p>
+      </div>
+    </div>
+  </div>
+</div>

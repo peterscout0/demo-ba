@@ -1,0 +1,93 @@
+<div class="view-container">
+  <header class="main-header">
+    <div class="header-top">
+      <div class="notification-icon">
+        <span class="material-icons">notifications_none</span>
+      </div>
+      <div class="bam-logo">
+        <img src="logo.png" alt="BAM Logo" class="logo-image">
+      </div>
+      <div class="menu-icon">
+        <span class="material-icons">logout</span>
+      </div>
+    </div>
+    <div class="greeting-section">
+      <h1>Hola María</h1>
+      <p class="last-access">Tu último ingreso fue el 22 ago. 2025 a las 11:14 pm.</p>
+    </div>
+    <div class="products-summary">
+      <div class="section-header">
+        <h2>Resumen de tus productos</h2>
+        <div class="view-icons">
+          <div class="icon-card active">
+            <span class="material-icons">view_module</span>
+          </div>
+          <div class="icon-list">
+            <span class="material-icons">view_list</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="main-content">
+    <div class="accounts-section">
+      <div class="section-title">
+        <div class="icon-circle">
+          <span class="material-icons">account_balance_wallet</span>
+        </div>
+        <h3>Cuentas</h3>
+      </div>
+      <div class="account-card">
+        <div class="account-info">
+          <h4>María Fernández</h4>
+          <p class="account-type">Monetaria</p>
+          <div class="account-number-section">
+            <p class="account-number">30-2847163-8</p>
+            <button class="copy-account-btn" (click)="onCopyAccount()" title="Copiar número de cuenta">
+              <span class="material-icons">content_copy</span>
+            </button>
+          </div>
+        </div>
+        <div class="account-balance">
+          <div class="balance-header">
+            <p class="balance-label">Disponible</p>
+            <button class="toggle-balance-btn" (click)="onToggleBalance()" title="{{showBalance ? 'Ocultar saldo' : 'Mostrar saldo'}}">
+              <span class="material-icons">{{showBalance ? 'visibility' : 'visibility_off'}}</span>
+            </button>
+          </div>
+          <p class="balance-amount">{{showBalance ? 'Q 2,847.50' : 'Q ****.**'}}</p>
+          <div class="status">
+            <span class="status-indicator {{accountStatus.class}}"></span>
+            <span class="status-text" [style.color]="accountStatus.color">{{accountStatus.text}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <nav class="bottom-nav">
+    <div class="nav-item active">
+      <span class="material-icons nav-icon">home</span>
+      <span>Inicio</span>
+    </div>
+    <div class="nav-item" (click)="onNavigateToTransfer()">
+      <span class="material-icons nav-icon">swap_horiz</span>
+      <span>Transferir</span>
+    </div>
+    <div class="nav-item" (click)="onNavigateToSearchServices()">
+      <span class="material-icons nav-icon">payment</span>
+      <span>Pagar</span>
+    </div>
+    <div class="nav-item">
+      <span class="material-icons nav-icon">more_horiz</span>
+      <span>Más</span>
+    </div>
+  </nav>
+</div>
+
+<app-update-modal
+  [isVisible]="showUpdateModal"
+  [title]="'Novedades en Inicio'"
+  [version]="currentVersion"
+  [features]="updateFeatures"
+  (close)="onCloseUpdateModal()">
+</app-update-modal>

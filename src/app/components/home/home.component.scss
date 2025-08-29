@@ -1,0 +1,513 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #ffffff; 
+  overflow-x: hidden;
+}
+.bam-app {
+  max-width: 100%; 
+  margin: 0; 
+  background-color: #ffffff;
+  min-height: 100vh;
+  position: relative;
+  box-shadow: none; 
+  display: flex;
+  flex-direction: column;
+}
+.main-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0f0f0;
+  flex-shrink: 0;
+}
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  .notification-icon {
+    .material-icons {
+      font-size: 24px;
+      color: #333;
+    }
+  }
+  .bam-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .logo-image {
+      height: 32px;
+      width: auto;
+      display: block;
+    }
+  }
+  .menu-icon {
+    .material-icons {
+      font-size: 20px;
+      color: #333;
+    }
+  }
+}
+.greeting-section {
+  padding: 24px 20px 8px; 
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+  }
+  .last-access {
+    font-size: 12px; 
+    color: #666; 
+    font-weight: 400;
+  }
+}
+.products-summary {
+  padding: 0px 20px 20px; 
+  background-color: #ffffff; 
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2 {
+      font-size: 16px; 
+      font-weight: 400; 
+      color: #666; 
+    }
+    .view-icons {
+      display: flex;
+      gap: 8px;
+      .icon-card, .icon-list {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        .material-icons {
+          font-size: 20px;
+          color: #666;
+        }
+        &.active {
+          background-color: #f0f0f0;
+          .material-icons {
+            color: #333;
+          }
+        }
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+  }
+}
+.main-content {
+  flex: 1;
+  background-color: #f8f9fa;
+  padding: 0px; 
+  overflow-y: auto;
+  padding-bottom: 100px; 
+}
+.accounts-section {
+  background-color: #ffffff;
+  border-radius: 0px; 
+  padding-bottom: 10px; 
+  box-shadow: none; 
+  border: none; 
+  margin-top: 20px; 
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    margin-left: 0px; 
+    padding-left: 0px; 
+    .icon-circle {
+      width: 32px;
+      height: 32px;
+      background-color: #fddb22;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .material-icons {
+        font-size: 18px;
+        color: #1a1a1a;
+      }
+    }
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+  }
+}
+.account-card {
+  background-color: #ffffff; 
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0px 16px 0px 16px; 
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); 
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12); 
+  }
+  .account-info {
+    flex: 1;
+    min-width: 0;
+    h4 {
+      font-size: 15px; 
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 3px; 
+      line-height: 1.2;
+    }
+    .account-type {
+      font-size: 13px; 
+      color: #666;
+      margin-bottom: 6px; 
+      line-height: 1.2;
+    }
+    .account-number-section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      .account-number {
+        font-size: 13px; 
+        color: #1a1a1a;
+        font-weight: 500;
+        line-height: 1.2;
+        font-family: monospace;
+        margin: 0;
+      }
+      .copy-account-btn {
+        background: none;
+        border: none;
+        padding: 4px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+          background-color: #f0f0f0;
+        }
+        &:active {
+          background-color: #e0e0e0;
+          transform: scale(0.95);
+        }
+        .material-icons {
+          font-size: 16px;
+          color: #666;
+        }
+      }
+    }
+  }
+  .account-balance {
+    text-align: right;
+    flex-shrink: 0;
+    margin-left: 16px;
+    .balance-header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      margin-bottom: 3px;
+      .balance-label {
+        font-size: 11px;
+        color: #666;
+        line-height: 1.2;
+        margin: 0;
+      }
+      .toggle-balance-btn {
+        background: none;
+        border: none;
+        padding: 2px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+          background-color: #f0f0f0;
+        }
+        &:active {
+          background-color: #e0e0e0;
+          transform: scale(0.95);
+        }
+        .material-icons {
+          font-size: 14px;
+          color: #666;
+        }
+      }
+    }
+    .balance-amount {
+      font-size: 16px; 
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 8px; 
+      line-height: 1.2;
+      transition: all 0.3s ease;
+    }
+    .status {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      .status-indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        transition: all 0.2s ease;
+        &.active {
+          background-color: #22c55e;
+          box-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
+        }
+        &.inactive {
+          background-color: #f59e0b;
+          box-shadow: 0 0 8px rgba(245, 158, 11, 0.3);
+        }
+        &.blocked {
+          background-color: #ef4444;
+          box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+        }
+        &.pending {
+          background-color: #6b7280;
+          box-shadow: 0 0 8px rgba(107, 114, 128, 0.3);
+        }
+      }
+      .status-text {
+        font-size: 11px;
+        font-weight: 500;
+        line-height: 1.2;
+        transition: color 0.2s ease;
+      }
+    }
+  }
+}
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0; 
+  width: 100%; 
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 8px 8px;
+  border-top: 1px solid #f0f0f0;
+  box-shadow: 0 -2px 16px rgba(0,0,0,0.1);
+  z-index: 1000;
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    min-width: 60px;
+    .material-icons.nav-icon {
+      font-size: 22px;
+      color: #666;
+      transition: color 0.2s ease;
+    }
+    span:not(.material-icons) {
+      font-size: 10px;
+      color: #666;
+      font-weight: 500;
+      text-align: center;
+      transition: color 0.2s ease;
+    }
+    &.active {
+      background-color: #fddb22;
+      .material-icons.nav-icon {
+        color: #1a1a1a;
+      }
+      span:not(.material-icons) {
+        color: #1a1a1a;
+        font-weight: 600;
+      }
+    }
+    &:not(.active):hover {
+      background-color: #f8f9fa;
+    }
+  }
+}
+@media (max-width: 480px) {
+  .bam-app {
+    max-width: 100%;
+    box-shadow: none;
+  }
+  .header-top {
+    padding: 12px 16px;
+  }
+  .greeting-section {
+    padding: 20px 16px 6px; 
+    h1 {
+      font-size: 28px; 
+    }
+    .last-access {
+      font-size: 12px; 
+    }
+  }
+  .products-summary {
+    padding: 0px 16px 18px; 
+    .section-header {
+      h2 {
+        font-size: 16px; 
+      }
+    }
+  }
+  .main-content {
+    padding: 0px; 
+    padding-bottom: 100px;
+  }
+  .accounts-section {
+    margin-top: 18px;
+    .section-title {
+      margin-left: 0px;
+      h3 {
+        font-size: 20px; 
+      }
+    }
+  }
+  .account-card {
+    padding: 16px; 
+    margin: 0 16px 10px 16px; 
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-start;
+    .account-info {
+      h4 {
+        font-size: 14px; 
+      }
+      .account-type {
+        font-size: 12px; 
+      }
+      .account-number {
+        font-size: 12px; 
+      }
+    }
+    .account-balance {
+      margin-left: 10px; 
+      text-align: right; 
+      .balance-label {
+        font-size: 10px; 
+      }
+      .balance-amount {
+        font-size: 15px; 
+      }
+      .status {
+        .status-text {
+          font-size: 10px; 
+        }
+      }
+    }
+  }
+  .bottom-nav {
+    padding: 10px 4px 6px;
+    .nav-item {
+      padding: 6px 8px;
+      min-width: 50px;
+      .material-icons.nav-icon {
+        font-size: 20px;
+      }
+      span:not(.material-icons) {
+        font-size: 9px;
+      }
+    }
+  }
+}
+@media (max-width: 360px) {
+  .greeting-section {
+    padding: 18px 14px 5px;
+    h1 {
+      font-size: 26px; 
+    }
+    .last-access {
+      font-size: 13px;
+    }
+  }
+  .products-summary {
+    padding: 0px 14px 16px; 
+    .section-header {
+      h2 {
+        font-size: 17px;
+      }
+    }
+  }
+  .main-content {
+    padding: 0px 0px 100px; 
+  }
+  .accounts-section {
+    padding: 0px 16px 16px 0px; 
+    margin-top: 16px;
+    .section-title {
+      margin-left: 0;
+      h3 {
+        font-size: 19px;
+      }
+    }
+  }
+  .account-card {
+    padding: 14px; 
+    margin: 0 14px 8px 14px;
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-start;
+    .account-info {
+      h4 {
+        font-size: 13px;
+      }
+      .account-type {
+        font-size: 11px;
+      }
+      .account-number {
+        font-size: 11px;
+      }
+    }
+    .account-balance {
+      margin-left: 8px;
+      text-align: right;
+      .balance-label {
+        font-size: 9px;
+      }
+      .balance-amount {
+        font-size: 14px;
+      }
+      .status {
+        .status-text {
+          font-size: 9px;
+        }
+      }
+    }
+  }
+  .bottom-nav {
+    .nav-item {
+      padding: 4px 6px;
+      min-width: 45px;
+      .material-icons.nav-icon {
+        font-size: 18px;
+      }
+      span:not(.material-icons) {
+        font-size: 8px;
+      }
+    }
+  }
+}
+.account-card + .account-card {
+  margin-top: 12px;
+}
