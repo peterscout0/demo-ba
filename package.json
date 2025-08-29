@@ -7,7 +7,7 @@
     "dev": "ng serve --configuration=development --watch --live-reload --poll=2000", 
     "build": "ng build",
     "build:prod": "ng build --configuration production --base-href /demo-ba/",
-    "deploy": "ng build --configuration production --base-href /demo-ba/ && copy dist\\demo-ba\\browser\\index.html dist\\demo-ba\\browser\\404.html && npx gh-pages -d dist/demo-ba/browser",
+    "deploy": "ng build --configuration production --base-href /demo-ba/ && cp dist/demo-ba/browser/index.html dist/demo-ba/browser/404.html && npx gh-pages -d dist/demo-ba/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
